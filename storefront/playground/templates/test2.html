@@ -1,0 +1,82 @@
+Vue.component('favorite', {
+    template: '<button type="button" @click.prevent="updateFaviteOption" :class="{ \'is-favorited\': isFavorited }"><span class="fa fa-heart"></span></button>',
+    props: [
+      'storeId',
+      'isFavorited'
+    ],
+    data: function() {
+      return {}
+    },
+    methods: {
+      updateFaviteOption: function() {
+        this.isFavorited = !this.isFavorited;
+        ///-- DO YOU AJAX HERE i use axios
+        ///-- so you can updte the store the the this.isFavorited
+      }
+    }
+  
+  });
+  
+  new Vue({
+    el: '#app',
+  });
+
+  .favorite-wrapper {
+  margin: 20px auto;
+  padding: 0;
+  text-align: center;
+  width: 500px;
+  height: 100px;
+}
+a:link,
+a:active,
+a:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #444;
+  transition: color 800ms;
+  font-size: 18px;
+}
+a:hover,
+a:hover:visited {
+  color: purple;
+}
+button {
+  margin: 10px auto;
+  padding: 8px 10px;
+  background: transparent;
+  width: auto;
+  color: white;
+  text-transform: uppercase;
+  transition: color 800ms;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+  color: #058A29;
+}
+.fa {
+  color: #d9d9d9;
+  font-size: 20px;
+  transition: color 400ms, transform 400ms;
+  opacity: 1;
+}
+.is-favorited .fa {
+  opacity: 1;
+  color: red;
+  transform: scale(1.4);
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" />
+<div id="app">
+
+  <div class="favorite-wrapper">
+    <favorite :store-id="3" :is-favorited="true">
+    </favorite>
+  </div>
+
+</div>
